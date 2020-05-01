@@ -1,0 +1,90 @@
+:host {
+  max-width: 320px;
+  display: block;
+}
+
+.card-information {
+  padding: 1em 0.5em;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 16px;
+  & > * {
+    margin-bottom: 10px;
+  }
+
+  .store-name {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .info-item {
+    line-height: 28px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+
+    .material-icons {
+      margin: 0px;
+      cursor: pointer;
+      position: relative;
+      top: 6px;
+      left: 6px;
+    }
+  }
+  .error {
+    color: rgb(231, 20, 41);
+  }
+  i {
+    margin: 5px;
+  }
+}
+.storage {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  span {
+    flex: 1 2 50%;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    padding: 0.3em;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  span:not(:last-child) {
+    margin-right: 0.5em;
+  }
+}
+
+.note {
+  // border-bottom: 1px dashed;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
+.info {
+  cursor: pointer;
+  label {
+    border-bottom: 1px dashed #333;
+  }
+}
+
+.arrow {
+  transition: all 0.4s ease;
+  &.expand {
+    transform: rotateX(-180deg);
+  }
+}
+
+app-service-periods-card {
+  overflow: hidden;
+  height: 0;
+  &.active {
+    height: 100%;
+  }
+}

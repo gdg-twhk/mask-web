@@ -1,0 +1,18 @@
+<google-map height="100%" width="100%" [options]="mapOptions" [center]="viewPosition" [zoom]="zoom"
+    (boundsChanged)="boundsChanged()">
+    <map-marker #mapmarker *ngFor="let marker of markers; trackBy: trackByFn" [position]="marker.position"
+        [options]="marker.options" (mapClick)="openInfoWindow(mapmarker, marker.id)"></map-marker>
+    <map-marker [position]="userPosition"></map-marker>
+    <map-info-window (positionChanged)="watchInfoWindowPosition()">
+        <app-map-store-card [data]="selectData"></app-map-store-card>
+    </map-info-window>
+</google-map>
+
+
+<ng-template #centerControl>
+    <div class="controlUI" (click)="getUserCurrentPosition()">
+        <i class="material-icons unclickable">
+            my_location
+        </i>
+    </div>
+</ng-template>

@@ -1,0 +1,68 @@
+<div class="card-information" *ngIf="data">
+  <div class="info-item">
+    <label class="store-name" (click)="moveMap(data)">{{ data.name }}</label>
+    <!-- <i class="material-icons right">pageview</i> -->
+  </div>
+  <a
+    href="https://www.google.com/maps/dir/?api=1&destination={{
+      data.latitude
+    }},{{ data.longitude }}"
+  >
+    <div class="info-item">
+      <label class="" for="">{{ data.address }}</label>
+      <i class="material-icons right">
+        navigation
+      </i>
+    </div>
+  </a>
+  <a href="tel:{{ data.phone }}">
+    <div class="info-item">
+      <label class="" for="">{{ data.phone }}</label>
+      <i class="material-icons right">
+        phone
+      </i>
+    </div>
+  </a>
+  <p class="note">
+    {{ data.customNote }}
+  </p>
+
+  <ng-container *ngIf="isExpirationNotExpired(data.updated); else errorDate">
+    <div class="storage">
+      <span [ngClass]="data.adultLevel">成人: {{ data.maskAdult }}</span>
+      <span [ngClass]="data.childLevel">孩童: {{ data.maskChild }}</span>
+    </div>
+  </ng-container>
+  <ng-template #errorDate>
+    <div class="error">
+      <i class="material-icons">
+        error_outline
+      </i>
+      無法取得正確資料
+    </div>
+    <p class="card-node">
+      * 中央健保署的資料似乎有問題，請電洽藥局。
+    </p>
+  </ng-template>
+  <div class="info-item" (click)="servicePeriodsCardToggle()">
+    <label>詳細資料</label>
+    <i
+      class="material-icons right arrow"
+      [ngClass]="{ expand: servicePeriodsCardShow }"
+    >
+      {{ windowInnerWidth > 768 ? 'arrow_drop_down' : 'info' }}
+    </i>
+  </div>
+  <app-service-periods-card
+    [data]="data"
+    [desktop]="true"
+    [class.active]="servicePeriodsCardShow"
+  ></app-service-periods-card>
+</div>
+
+<ng-template #spcard>
+  <app-service-periods-card
+    [data]="data"
+    [class.active]="servicePeriodsCardShow"
+  ></app-service-periods-card>
+</ng-template>

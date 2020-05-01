@@ -1,0 +1,45 @@
+<section class="period-section">
+  <h1 class="store-name" *ngIf="displayStoreName">{{ data.name }}</h1>
+  <h2 class="title">營業資訊</h2>
+  <table>
+    <thead>
+      <tr class="table-row header">
+        <th>時段</th>
+        <th>一</th>
+        <th>二</th>
+        <th>三</th>
+        <th>四</th>
+        <th>五</th>
+        <th>六</th>
+        <th>日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="table-row"
+        *ngFor="let item of periodTable | keyvalue: compareFn"
+      >
+        <td class="periodKey">{{ item.key }}</td>
+        <td *ngFor="let o of item.value" [class]="{ open: !!o }">{{ o }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<div class="info-item">
+  <label>{{ data.address }}</label>
+  <a
+    class="material-icons right"
+    target="_blank"
+    href="https://www.google.com/maps/dir/?api=1&destination={{
+      data.latitude
+    }},{{ data.longitude }}"
+  >
+    navigation
+  </a>
+</div>
+<div class="info-item">
+  <label>{{ data.phone }}</label>
+  <a href="tel:{{ data.phone }}" class="material-icons right">
+    phone
+  </a>
+</div>

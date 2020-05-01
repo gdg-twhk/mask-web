@@ -1,0 +1,19 @@
+.controlUI {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  margin-bottom: 22px;
+  bottom: 100px !important;
+  right: 10px !important;
+  width: 36px;
+  height: 36px;
+}
+
+.unclickable {
+  pointer-events: none;
+}

@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Sans+TC&display=swap');
+
+body,
+div,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', 'Noto Sans', sans-serif;
+}
+
+.gm-style {
+  font-family: 'Noto Sans TC', 'Noto Sans', sans-serif !important;
+}
+
+body {
+  overflow: hidden;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.safe {
+  background-color: #48c774;
+  color: #fff;
+}
+
+.warning {
+  background-color: #ffdd57;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.low {
+  background-color: #fc82b1;
+  color: #fff;
+}
+
+.soldout {
+  background-color: #b9b9b9;
+  color: #fff;
+}
+
+.all {
+  background-color: #4267b2;
+  color: #fff;
+}
+
+.mat-dialog-container {
+  padding: 0px !important;
+}
+
+.ng-star-inserted {
+  img {
+    max-width: 80vw;
+    max-height: 80vh;
+    height: auto !important;
+  }
+}
+
+.gm-style-iw-c {
+  min-width: 260px;
+}
+
+.gm-style .gm-style-iw-d {
+  max-width: 100% !important;
+}

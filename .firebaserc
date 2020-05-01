@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mask-9999": {
+      "hosting": {
+        "mask-web": [
+          "mask-9999"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+:host {
+  padding: 1em 0.5em;
+  display: block;
+}
+
+.store-name {
+  font-size: 18px;
+}
+
+h2.title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.period-section {
+  margin-bottom: 10px;
+}
+
+table {
+  border-spacing: 0;
+  border-radius: 3px;
+  width: 100%;
+}
+th,
+td {
+  padding: 0.2em;
+  text-align: center;
+  line-height: 24px;
+}
+.table-row {
+  display: table-row;
+  background: #f6f6f6;
+
+  &:nth-of-type(odd) {
+    background: #e9e9e9;
+  }
+
+  &.header {
+    font-weight: 900;
+    color: #ffffff;
+    background: #ea6153;
+  }
+
+  .periodKey {
+    color: #999999;
+  }
+}
+
+.info-item {
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.1em;
+  .material-icons {
+    margin: 0px;
+    cursor: pointer;
+  }
+}

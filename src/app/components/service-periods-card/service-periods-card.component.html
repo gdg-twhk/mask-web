@@ -1,0 +1,57 @@
+<div class="card-modal" *ngIf="data">
+  <!-- 桌面板不出現的DOM -->
+  <ng-container *ngIf="!desktop">
+    <i class="material-icons close" (click)="closeDialog()">close</i>
+    <div class="info-item">
+      <label class="store-name">{{ data.name }}</label>
+    </div>
+  </ng-container>
+  <table>
+    <thead>
+      <tr class="table-row header">
+        <th>營業時間</th>
+        <th>一</th>
+        <th>二</th>
+        <th>三</th>
+        <th>四</th>
+        <th>五</th>
+        <th>六</th>
+        <th>日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-row">
+        <td>上午</td>
+        <td>{{ servicePeriods(0) }}</td>
+        <td>{{ servicePeriods(1) }}</td>
+        <td>{{ servicePeriods(2) }}</td>
+        <td>{{ servicePeriods(3) }}</td>
+        <td>{{ servicePeriods(4) }}</td>
+        <td>{{ servicePeriods(5) }}</td>
+        <td>{{ servicePeriods(6) }}</td>
+      </tr>
+      <tr class="table-row">
+        <td>下午</td>
+        <td>{{ servicePeriods(7) }}</td>
+        <td>{{ servicePeriods(8) }}</td>
+        <td>{{ servicePeriods(9) }}</td>
+        <td>{{ servicePeriods(10) }}</td>
+        <td>{{ servicePeriods(11) }}</td>
+        <td>{{ servicePeriods(12) }}</td>
+        <td>{{ servicePeriods(13) }}</td>
+      </tr>
+      <tr class="table-row">
+        <td>晚上</td>
+        <td>{{ servicePeriods(14) }}</td>
+        <td>{{ servicePeriods(15) }}</td>
+        <td>{{ servicePeriods(16) }}</td>
+        <td>{{ servicePeriods(17) }}</td>
+        <td>{{ servicePeriods(18) }}</td>
+        <td>{{ servicePeriods(19) }}</td>
+        <td>{{ servicePeriods(20) }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- 備註 -->
+  <div [innerHTML]="serviceNote(data.serviceNote)"></div>
+</div>

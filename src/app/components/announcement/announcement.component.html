@@ -1,0 +1,8 @@
+<h1 mat-dialog-title class="title">公告</h1>
+<div mat-dialog-content class="content">
+    <p class="main-announcement">因應口罩 3.0 政策上線，口罩即時地圖已完成階段任務，即將在四月底後結束服務，製作團隊感謝各位在防疫期間的的互相包容與鼓勵，期望我們都能夠平安渡過這次疫情。</p>
+    <mat-checkbox [formControl]="showNoMore">不再顯示</mat-checkbox>
+</div>
+<div mat-dialog-actions class="actions">
+    <button mat-button (click)="ok()" color="primary">關閉</button>
+</div>

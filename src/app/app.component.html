@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="search-icon" (click)="toggleSearchList(true)" *ngIf="!showSearchList">
+    <i class="material-icons">menu</i>
+  </div>
+  <div class="search-mask" *ngIf="showSearchList" (click)="toggleSearchList(false)"></div>
+  <div class="search-list" [class]="{ show: showSearchList }">
+    <div class="item search-filter">
+      <mat-form-field class="search-input">
+        <input type="search" matInput placeholder="過濾" [formControl]="searchFilter" />
+        <mat-hint align="start">
+          過濾下列清單中的藥局，可用(名稱、地址、電話)作為條件
+        </mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="item search-options">
+      <mat-form-field class="search-option">
+        <mat-label>顯示藥局</mat-label>
+        <mat-select [formControl]="displayOption">
+          <mat-option *ngFor="let pageOption of pageOptions" [value]="pageOption.value">
+            {{ pageOption.display }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="search-option">
+        <mat-label>數量由多到少</mat-label>
+        <mat-select [formControl]="maskOption">
+          <mat-option *ngFor="let masktype of masktypes" [value]="masktype.value">
+            {{ masktype.display }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="item search-results">
+      <ul>
+        <li *ngFor="let x of (searchResults$ | async)?.data">
+          <app-store-card [data]="x" (moveToMedical)="moveToMedical($event)" [showStoreName]="true">
+          </app-store-card>
+        </li>
+      </ul>
+    </div>
+    <div class="item search-note">
+      口罩資訊最後更新時間 {{ lastUpdateTime | date: 'HH:mm:ss' }}
+    </div>
+  </div>
+  <div class="map">
+    <app-map [markers]="markers"></app-map>
+  </div>
+  <div class="overlay-info overlay-info-dm" [class]="{ expand: expandDM }">
+    <span class="mobile" (click)="openDialog()">
+      <i class="material-icons">
+        info
+      </i>
+    </span>
+    <span (click)="toggleExpandDM()" class="desktop">口罩取得方式</span>
+    <img src="/assets/images/policy.jpg" class="map-sample" (click)="openDialog()" />
+  </div>
+  <div class="overlay-info overlay-info-statis">
+    <p class="search-detail">
+      正在尋找<span class="search-condition" (click)="moveToNextdisplayOption()">{{ displayOptionDisplay$ | async }}</span>
+      藥局，<span class="search-condition" (click)="moveToNextMaskType()">{{
+        maskTypesDisplay$ | async
+      }}</span>數量
+    </p>
+    <div class="update-time">
+      口罩資訊最後更新時間 {{ lastUpdateTime | date: 'HH:mm:ss' }}
+    </div>
+    <p class="card-node">
+      * 部分藥局採發放號碼牌方式，方便民眾購買口罩<br />系統無法顯示發送號碼牌數量。若想看剩餘數量請電洽藥局。
+    </p>
+  </div>
+  <ul class="overlay-info color-meaning">
+    <li *ngFor="let item of storageLevelList; let idx = index" (click)="filterList(idx)" [class]="item.class"
+      [ngClass]="{ active: curretStorageFilterLevel === storageLevel[idx] }">
+      {{ item.display }}
+    </li>
+  </ul>
+  <footer class="copyright">
+    <div class="google">
+      <a href="https://cloud.google.com/" target="_blank">
+        <img class="cloud" src="/assets/cloud-logo.png" />
+      </a>
+    </div>
+    <p class="sponsored">
+      ©2020 GDG | GDG Cloud@Taiwan, sponsored by Google Cloud
+    </p>
+  </footer>
+</div>
+
+<ng-template #dm>
+  <div style="height: 100%;">
+    <img src="/assets/images/policy.jpg" style="height: 100%;" />
+  </div>
+</ng-template>

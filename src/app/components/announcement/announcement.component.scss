@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  padding: 24px;
+}
+
+.title {
+  font-size: 1.2em;
+}
+
+.content {
+  overflow: hidden;
+}
+
+.main-announcement {
+  padding-bottom: 8px;
+  font-size: 1em;
+  line-height: 2;
+}
+
+.actions {
+  flex-direction: row-reverse;
+}
